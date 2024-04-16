@@ -2,32 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+.screen-light{
+  background-color: #f3f4f6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.screen-dark{
+  background-color: #000814;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.start-gif-dark {
+  background-image: url("/img/start-button.gif");
+  width: 200px;
+  height: 110px;
+  background-size: cover;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* .start-gif-dark:hover {
+  background-image: url("/img/start-button.gif");
+
+} */
+
+.start-gif-light {
+  background-image: url("/img/start-button-wt.gif");
+  width: 200px;
+  height: 110px;
+  background-size: cover;
 }
+
+/* .start-gif-light:hover {
+  background-image: url("/img/start-button-wt.gif");
+
+} */
+
+.lamp-gif-dark {
+  background-image: url("/img/lamp-bt.gif");
+  width: 150px;
+  height: 270px;
+  background-size: cover; 
+  margin-left: 20px;
+}
+
+/* .lamp-gif-dark:hover {
+  background-image: url("/img/lamp-bt.gif");
+} */
+
+.lamp-gif-light {
+  background-image: url("/img/lamp-wt.gif");
+  width: 200px;
+  height: 300px;
+  background-size: cover;
+}
+
+/* .lamp-gif-light:hover {
+  background-image: url("/img/lamp-wt.gif");
+} */
+
+
+
+
