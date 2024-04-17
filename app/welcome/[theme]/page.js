@@ -15,12 +15,12 @@ export default function Welcome({ params }) {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      router.push(`/pages/home/${params.theme === 'light' ? 'light' : 'dark'}`);
+      router.push(`/pages/${params.theme === 'light' ? 'light' : 'dark'}/home`);
     }, 3000);
 
     return () => clearTimeout(timeout);
   }, [router]);
-
+   
   return (
     <div className={theme === 'light' ? 'screen-light' : 'screen-dark'}>
       <div className="flex justify-center items-center h-screen">

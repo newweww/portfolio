@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 
-.screen-light{
+.screen-light {
   background-color: #f3f4f6;
 }
 
-.screen-dark{
+.screen-dark {
   background-color: #000814;
 }
 
@@ -39,7 +39,7 @@
   background-image: url("/img/lamp-bt.gif");
   width: 150px;
   height: 270px;
-  background-size: cover; 
+  background-size: cover;
   margin-left: 20px;
 }
 
@@ -58,6 +58,37 @@
   background-image: url("/img/lamp-wt.gif");
 } */
 
+.border-light {
+  padding: 10px;
+  border: 15px solid transparent;
+  border-image: url("/img/border2-wt.gif") 30 stretch ;
+}
+
+.border-dark {
+  padding: 10px;
+  border: 15px solid transparent;
+  border-image: url("/img/border2-dt.gif") 30 stretch ;
+}
 
 
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar li {
+  margin-right: 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+}
 

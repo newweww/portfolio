@@ -10,12 +10,17 @@ export default function Home({ params }) {
 
     useEffect(() => {
         setTheme(params.theme);
-      }, []);
+    }, []);
+
 
     return (
         <div className={theme === 'light' ? 'screen-light' : 'screen-dark'}>
-            <div className="flex justify-center items-center h-screen">
-                <h5 style={{ color: theme === 'light' ? 'black' : 'white', fontSize: '24px' }}>Home</h5>
+            <div>
+                <div className="flex justify-center items-center h-10">
+                    <div className={theme === 'light' ? 'border-light' : 'border-dark'}>
+                        <h5 style={{ color: theme === 'light' ? 'black' : 'white', fontSize: '24px' }}>Home</h5>
+                    </div>
+                </div>
             </div>
         </div>
     )
