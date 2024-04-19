@@ -17,14 +17,13 @@ export default function PagesLayout({ children, params }) {
         }, 1000);
     
         return () => clearInterval(interval);
-      }, []);
+    }, []);
 
     useEffect(() => {
         console.log(params.theme);
         setTheme(params.theme);
         console.log(pathname);
     }, [params.theme]);
-
 
     const handleChangeTheme = (e) => {
         e.preventDefault()
@@ -36,9 +35,20 @@ export default function PagesLayout({ children, params }) {
 
     return (
         <div
-            className={theme === 'light' ? 'screen-light' : 'screen-dark'}
-            style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-            <div className={`flex justify-center items-start`} style={{ height: '50vh' }}>
+            style={{ height: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+            <style jsx global>{`
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background-color: ${theme === 'light' ? '#f3f4f6' : '#000814'};
+                }
+                @media screen and (max-width: 950px) {
+                    .floating-lamp, .time-display {
+                        display: none;
+                    }
+                }
+            `}</style>
+            <div className={`flex justify-center items-start`} >
                 <nav className="navbar">
                     <ul>
                         <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
@@ -56,17 +66,12 @@ export default function PagesLayout({ children, params }) {
                     </ul>
                 </nav>
             </div>
-            <div className={`flex justify-end right-0 absolute mt-20 mr-52 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+            <div className={`flex floating-lamp ${theme === 'dark' ? 'lamp-gif-dark' : 'lamp-gif-light'}`} onClick={handleChangeTheme}></div>
+            <div className={`time-display flex justify-end absolute mt-20 right-32 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
                 <div className={`border-${theme}`} style={{ fontSize: '24px' }}>{currentTime}</div>
             </div>
-            <div className="flex justify-center items-center" style={{ height: '50vh' }}>
+            <div className="flex justify-center items-end" >
                 {children}
-            </div>
-            <div className="flex justify-start items-end ml-40">
-                <div
-                    className={theme === 'light' ? 'lamp-gif-light' : 'lamp-gif-dark'}
-                    onClick={handleChangeTheme}
-                ></div>
             </div>
         </div>
     );

@@ -2,14 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1.25rem;
+  width: 300px;
+}
 
-.screen-light {
-  background-color: #f3f4f6;
+input:focus {
+  outline: none;
+}
+
+textarea {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  width: 300px;
+  font-size: 1.25rem;
+}
+
+textarea:focus {
+  outline: none;
 }
 
 .screen-dark {
+  background-color: #f3f4f6;
+}
+
+.screen-light {
   background-color: #000814;
 }
+
+.text-dark {
+  color: white;
+}
+
+.text-light {
+  color: black;
+}
+
 
 .start-gif-dark {
   background-image: url("/img/start-button.gif");
@@ -40,9 +72,8 @@
   width: 150px;
   height: 270px;
   background-size: cover;
-  margin-left: 20px;
+  left: 10rem;
 }
-
 /* .lamp-gif-dark:hover {
   background-image: url("/img/lamp-bt.gif");
 } */
@@ -50,13 +81,27 @@
 .lamp-gif-light {
   background-image: url("/img/lamp-wt.gif");
   width: 200px;
-  height: 300px;
+  height: 270px;
   background-size: cover;
+  left: 8rem;
+}
+
+.floating-lamp {
+  position: fixed;
+  bottom: 0px;
+  cursor: pointer;
 }
 
 /* .lamp-gif-light:hover {
   background-image: url("/img/lamp-wt.gif");
 } */
+
+.turn-on-dark {
+  background-image: url("/img/turn-on-dt.gif");
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+}
 
 .border-light {
   padding: 10px;
@@ -90,5 +135,10 @@
 
 .navbar a {
   text-decoration: none;
+}
+
+.content {
+  display: flex;
+  min-width: 70%;
 }
 

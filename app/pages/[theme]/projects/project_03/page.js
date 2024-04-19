@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-export default function Project({ params }) {
+export default function Project3({ params }) {
     const router = useRouter();
     const [theme, setTheme] = useState();
 
@@ -17,7 +17,7 @@ export default function Project({ params }) {
             <div>
                 <div className="flex justify-center items-center h-10">
                     <div className={theme === 'light' ? 'border-light' : 'border-dark'}>
-                        <h5 className={`text-${theme}`}  style={{ fontSize: '24px' }}>Project</h5>
+                        <h5 className={`text-${theme}`}  style={{ fontSize: '24px' }}>Project3</h5>
                     </div>
                 </div>
             </div>

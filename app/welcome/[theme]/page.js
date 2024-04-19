@@ -22,7 +22,14 @@ export default function Welcome({ params }) {
   }, [router]);
    
   return (
-    <div className={theme === 'light' ? 'screen-light' : 'screen-dark'}>
+    <div>
+      <style jsx global>{`
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background-color: ${theme === 'light' ? '#f3f4f6' : '#000814'};
+                }
+            `}</style>
       <div className="flex justify-center items-center h-screen">
         <Image
           src={theme === 'light' ? '/img/welcome-text-wt.gif' : '/img/welcome-text.gif'}

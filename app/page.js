@@ -28,21 +28,34 @@ export default function Home() {
   };
 
   return (
-    <div className={theme === 'light' ? 'screen-light' : 'screen-dark'}>
-      <div className={`flex justify-end right-0 absolute mt-20 mr-52 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+    <div>
+      <style jsx global>{`
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background-color: ${theme === 'light' ? '#f3f4f6' : '#000814'};
+                }
+            `}</style>
+      <div className={`flex justify-end right-0 absolute mt-20 mr-5 md:mr-52 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
         <div className={`border-${theme}`} style={{ fontSize: '24px' }}>{currentTime}</div>
       </div>
       <div className="flex justify-center items-center h-screen">
         <div
-          className={theme === 'light' ? 'start-gif-light' : 'start-gif-dark'}
+          className={`start-gif-${theme}`}
           onClick={handleClick}
         ></div>
       </div>
-      <div className="flex justify-start items-end h-screen absolute bottom-0 left-0 ml-40">
-        <div
-          className={theme === 'light' ? 'lamp-gif-light' : 'lamp-gif-dark'}
-          onClick={handleChangeTheme}
-        ></div>
+      <div className='ml-2'>
+        <div className='flex justify-start items-end h-screen absolute bottom-0 left-0 mb-52'>
+          <div className={`turn-on-${theme}`}>
+          </div>
+        </div>
+        <div className="flex justify-start items-end h-screen absolute bottom-0 left-40">
+          <div
+            className={`lamp-gif-${theme}`}
+            onClick={handleChangeTheme}
+          ></div>
+        </div>
       </div>
     </div>
   );
