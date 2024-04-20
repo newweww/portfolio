@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -12,6 +12,37 @@ export default function Project1({ params }) {
         setTheme(params.theme);
     }, []);
 
+    const modalRef = useRef(null);
+    const [showModal, setShowModal] = useState(false);
+    const [selectedImage, setSelectedImage] = useState('');
+
+    const handleImageClick = (imageUrl) => {
+        setSelectedImage(imageUrl);
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setSelectedImage('');
+        setShowModal(false);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                closeModal();
+            }
+        };
+
+        if (showModal) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [showModal]);
 
     return (
         <div className="flex justify-center items-center h-10">
@@ -25,7 +56,10 @@ export default function Project1({ params }) {
                         src="/img/projects/project1/pj1.png"
                         width={300}
                         height={100}
-                        alt="Project 1" />
+                        alt="Project 1"
+                        onClick={() => handleImageClick("/img/projects/project1/pj1.png")}
+                        style={{ cursor: 'pointer' }}
+                    />
                 </div>
                 <br />
                 <div className='flex justify-center p-5'>
@@ -37,7 +71,10 @@ export default function Project1({ params }) {
                         src="/img/projects/project1/noti.png"
                         width={300}
                         height={100}
-                        alt="Project 1" />
+                        alt="Project 1"
+                        onClick={() => handleImageClick("/img/projects/project1/noti.png")}
+                        style={{ cursor: 'pointer' }}
+                    />
                 </div>
                 <br />
                 <div className='flex justify-center p-5'>
@@ -49,7 +86,10 @@ export default function Project1({ params }) {
                         src="/img/projects/project1/welcome.png"
                         width={300}
                         height={100}
-                        alt="Project 1" />
+                        alt="Project 1"
+                        onClick={() => handleImageClick("/img/projects/project1/welcome.png")}
+                        style={{ cursor: 'pointer' }}
+                    />
                 </div>
                 <br />
                 <div className='flex justify-center p-5'>
@@ -61,7 +101,10 @@ export default function Project1({ params }) {
                         src="/img/projects/project1/website.png"
                         width={300}
                         height={100}
-                        alt="Project 1" />
+                        alt="Project 1"
+                        onClick={() => handleImageClick("/img/projects/project1/website.png")}
+                        style={{ cursor: 'pointer' }}
+                    />
                 </div>
                 <br />
                 <div className='flex justify-center p-5'>
@@ -69,6 +112,14 @@ export default function Project1({ params }) {
                 </div>
                 <br />
             </div>
+
+            {showModal && (
+                <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-75">
+                    <div ref={modalRef} className="max-w-3xl">
+                        <img src={selectedImage} alt="Popup" className="max-w-full h-auto" />
+                    </div>
+                </div>
+            )}
         </div>
-    )
+    );
 }
