@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
+import { Fade } from 'react-awesome-reveal';
 
 export default function PagesLayout({ children, params }) {
 
@@ -13,9 +14,9 @@ export default function PagesLayout({ children, params }) {
 
     useEffect(() => {
         const interval = setInterval(() => {
-          setCurrentTime(new Date().toLocaleTimeString('th-TH', { timeZone: 'Asia/Bangkok' }));
+            setCurrentTime(new Date().toLocaleTimeString('th-TH', { timeZone: 'Asia/Bangkok' }));
         }, 1000);
-    
+
         return () => clearInterval(interval);
     }, []);
 
@@ -48,28 +49,34 @@ export default function PagesLayout({ children, params }) {
                     }
                 }
             `}</style>
-            <div className={`flex justify-center items-start`} >
-                <nav className="navbar">
-                    <ul>
-                        <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                            <button onClick={() => router.push(`/pages/${theme}/home`)}>Home</button>
-                        </li>
-                        <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                            <button onClick={() => router.push(`/pages/${theme}/about`)}>About</button>
-                        </li>
-                        <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                            <button onClick={() => router.push(`/pages/${theme}/project`)}>Projects</button>
-                        </li>
-                        <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                            <button onClick={() => router.push(`/pages/${theme}/contact`)}>Contact</button>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div className={`flex floating-lamp ${theme === 'dark' ? 'lamp-gif-dark' : 'lamp-gif-light'}`} onClick={handleChangeTheme}></div>
-            <div className={`time-display flex justify-end absolute mt-20 right-32 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                <div className={`border-${theme}`} style={{ fontSize: '24px' }}>{currentTime}</div>
-            </div>
+            <Fade direction='down' triggerOnce>
+                <div className={`flex justify-center items-start`} >
+                    <nav className="navbar">
+                        <ul>
+                            <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                                <button onClick={() => router.push(`/pages/${theme}/home`)}>Home</button>
+                            </li>
+                            <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                                <button onClick={() => router.push(`/pages/${theme}/about`)}>About</button>
+                            </li>
+                            <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                                <button onClick={() => router.push(`/pages/${theme}/project`)}>Projects</button>
+                            </li>
+                            <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                                <button onClick={() => router.push(`/pages/${theme}/contact`)}>Contact</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </Fade>
+            <Fade className='flex floating-lamp' style={{ left: '8rem'}}  direction='left' triggerOnce>
+                <div className={`flex ${theme === 'dark' ? 'lamp-gif-dark' : 'lamp-gif-light'}`}onClick={handleChangeTheme}></div>
+            </Fade>
+            <Fade direction='right' triggerOnce>
+                <div className={`time-display flex justify-end absolute mt-20 right-32 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                    <div className={`border-${theme}`} style={{ fontSize: '24px' }}>{currentTime}</div>
+                </div>
+            </Fade>
             <div className="flex justify-center items-end" >
                 {children}
             </div>

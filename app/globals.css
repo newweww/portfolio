@@ -88,7 +88,7 @@ textarea:focus {
 
 .floating-lamp {
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   cursor: pointer;
 }
 
@@ -130,6 +130,20 @@ textarea:focus {
   border-right: 0px solid transparent;
   border-left: 0px solid transparent;
   border-bottom: 15px solid;
+  border-image: url("/img/border2-dt.gif") 30 stretch;
+}
+
+.border-light-rline {
+  padding: 10px;
+  border-width: 0 15px 0 0; /* 0 top, 15px right, 0 bottom, 0 left */
+  border-style: solid;
+  border-image: url("/img/border2-wt.gif") 30 stretch;
+}
+
+.border-dark-rline {
+  padding: 10px;
+  border-width: 0 15px 0 0; /* 0 top, 15px right, 0 bottom, 0 left */
+  border-style: solid;
   border-image: url("/img/border2-dt.gif") 30 stretch;
 }
 
