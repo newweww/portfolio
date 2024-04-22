@@ -49,24 +49,22 @@ export default function PagesLayout({ children, params }) {
                     }
                 }
             `}</style>
-            <Fade direction='down' triggerOnce>
-                <div className={`flex justify-center items-start`} >
-                    <nav className="navbar">
-                        <ul>
-                            <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                                <button onClick={() => router.push(`/pages/${theme}/home`)}>Home</button>
-                            </li>
-                            <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                                <button onClick={() => router.push(`/pages/${theme}/about`)}>About</button>
-                            </li>
-                            <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                                <button onClick={() => router.push(`/pages/${theme}/project`)}>Projects</button>
-                            </li>
-                            <li className={`border-${theme} ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                                <button onClick={() => router.push(`/pages/${theme}/contact`)}>Contact</button>
-                            </li>
-                        </ul>
-                    </nav>
+            <Fade className='fixed flex justify-start items-start w-full h-full' direction='down' triggerOnce>
+                <div className={`navbar text-${theme}`}>
+                    <ul className="flex flex-col items-center">
+                        <li className={`border-${theme} mb-2`}>
+                            <button onClick={() => router.push(`/pages/${theme}/home`)}>Home</button>
+                        </li>
+                        <li className={`border-${theme} mb-2`}>
+                            <button onClick={() => router.push(`/pages/${theme}/about`)}>About</button>
+                        </li>
+                        <li className={`border-${theme} mb-2`}>
+                            <button onClick={() => router.push(`/pages/${theme}/project`)}>Projects</button>
+                        </li>
+                        <li className={`border-${theme} mb-2`}>
+                            <button onClick={() => router.push(`/pages/${theme}/contact`)}>Contact</button>
+                        </li>
+                    </ul>
                 </div>
             </Fade>
             <Fade className='flex floating-lamp' style={{ left: '8rem'}}  direction='left' triggerOnce>
@@ -77,7 +75,7 @@ export default function PagesLayout({ children, params }) {
                     <div className={`border-${theme}`} style={{ fontSize: '24px' }}>{currentTime}</div>
                 </div>
             </Fade>
-            <div className="flex justify-center items-end" >
+            <div className="flex justify-center items-start" >
                 {children}
             </div>
         </div>

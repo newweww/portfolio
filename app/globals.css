@@ -42,6 +42,13 @@ textarea:focus {
   color: black;
 }
 
+.second-bg-light {
+  background-color: #eae8e8;
+}
+
+.second-bg-dark {
+  background-color: #000c1d;
+}
 
 .start-gif-dark {
   background-image: url("/img/start-button.gif");
@@ -135,14 +142,28 @@ textarea:focus {
 
 .border-light-rline {
   padding: 10px;
-  border-width: 0 15px 0 0; /* 0 top, 15px right, 0 bottom, 0 left */
+  border-width: 0 15px 0 0;
   border-style: solid;
   border-image: url("/img/border2-wt.gif") 30 stretch;
 }
 
 .border-dark-rline {
   padding: 10px;
-  border-width: 0 15px 0 0; /* 0 top, 15px right, 0 bottom, 0 left */
+  border-width: 0 15px 0 0; 
+  border-style: solid;
+  border-image: url("/img/border2-dt.gif") 30 stretch;
+}
+
+.border-light-tbline {
+  padding: 10px;
+  border-width: 15px 0 15px 0; 
+  border-style: solid;
+  border-image: url("/img/border2-wt.gif") 30 stretch;
+}
+
+.border-dark-tbline {
+  padding: 10px;
+  border-width: 15px 0 15px 0; 
   border-style: solid;
   border-image: url("/img/border2-dt.gif") 30 stretch;
 }

@@ -14,8 +14,8 @@ export default function Project({ params }) {
     }, []);
 
     return (
-        <div>
-            <div className="flex justify-center items-center h-10">
+        <div className="flex flex-col justify-center items-start pb-20 mt-10">
+            <div className='h-screen w-screen flex justify-center items-center'>
                 <div className='flex flex-col justify-center' style={{ marginTop: 'auto' }}>
                     <Fade direction='down' triggerOnce>
                         <div className={theme === 'light' ? 'border-light' : 'border-dark'} style={{ width: '50vw' }}>

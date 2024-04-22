@@ -15,9 +15,9 @@ export default function About({ params }) {
     }, []);
 
     return (
-        <Fade triggerOnce>
-            <div className="flex justify-center items-center">
-                <div className='flex flex-col' style={{ marginTop: 'auto' }}>
+        <div className="flex flex-col justify-center items-start pb-20 mt-10">
+            <div className='w-screen flex justify-center items-center'>
+                <Fade triggerOnce>
                     <div className={`border-${theme}`} style={{ width: '45vw', padding: "20px" }}>
                         <div className='flex flex-col'>
                             <div className='flex items-center justify-between h-full'>
@@ -126,8 +126,8 @@ export default function About({ params }) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Fade>
             </div>
-        </Fade>
+        </div>
     )
 }
