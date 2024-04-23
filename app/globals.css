@@ -200,3 +200,13 @@ textarea:focus {
 .hover-zoom:hover {
   transform: scale(1.05);
 }
+
+.badge-light {
+  background-color: #333;
+  color: #f8f9fa;
+}
+
+.badge-dark {
+  background-color: #f8f9fa;
+  color: #333;
+}
