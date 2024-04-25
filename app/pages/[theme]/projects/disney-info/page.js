@@ -56,6 +56,11 @@ export default function Disney_Info({ params }) {
                         Github
                     </div>
                 </a>
+                <a className='absolute' href="https://disneyinfo-848d7.web.app/" target="_blank" rel="noopener noreferrer" style={{ width: '7vw', right: '33vw' }}>
+                    <div className={`border-${theme} text-${theme}`}>
+                        Website
+                    </div>
+                </a>
                 <br />
                 <div className='flex justify-center'>
                     <Image
