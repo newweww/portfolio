@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-export default function Disney_Info({ params }) {
+export default function Tesla_clone({ params }) {
     const router = useRouter();
     const [theme, setTheme] = useState();
 
@@ -49,9 +49,9 @@ export default function Disney_Info({ params }) {
         <div className="flex justify-center items-center h-screen">
             <div className="flex flex-col m-auto" style={{ width: '50vw' }}>
                 <div className={`border-${theme}-btline`}>
-                    <h5 className={`text-${theme}`} style={{ fontSize: '40px' }}>Disney Info</h5>
+                    <h5 className={`text-${theme}`} style={{ fontSize: '40px' }}>Tesla Clone</h5>
                 </div>
-                <a className='absolute' href="https://github.com/newweww/disney-character-info" target="_blank" rel="noopener noreferrer" style={{ width: '7vw', right: '25vw' }}>
+                <a className='absolute' href="https://github.com/newweww/tesla-clone" target="_blank" rel="noopener noreferrer" style={{ width: '7vw', right: '25vw' }}>
                     <div className={`border-${theme} text-${theme}`}>
                         Github
                     </div>
@@ -59,11 +59,11 @@ export default function Disney_Info({ params }) {
                 <br />
                 <div className='flex justify-center'>
                     <Image
-                        src="/img/projects/project3/home.png"
+                        src="/img/projects/project4/home.png"
                         width={500}
                         height={100}
                         alt="Project 2"
-                        onClick={() => handleImageClick("/img/projects/project3/home.png")}
+                        onClick={() => handleImageClick("/img/projects/project4/home.png")}
                         style={{ cursor: 'pointer' }}
                     />
                 </div>
@@ -74,37 +74,17 @@ export default function Disney_Info({ params }) {
                 <br />
                 <div className='flex flex-col items-center'>
                     <Image
-                        src="/img/projects/project3/searchmic.gif"
+                        src="/img/projects/project4/all_page.jpeg"
                         width={500}
                         height={100}
                         alt="Project 2"
-                        onClick={() => handleImageClick("/img/projects/project3/searchmic.gif")}
+                        onClick={() => handleImageClick("/img/projects/project4/all_page.jpeg")}
                         style={{ cursor: 'pointer' }}
                     />
                     <br />
                 </div>
-                <br />
-                <div className='flex justify-center p-5'>
-                    <p className={`text-${theme}`}>paragarph 2</p>
-                </div>
-                <br />
-                <div className='flex flex-col items-center'>
-                    <Image
-                        src="/img/projects/project3/start-butterfly.png"
-                        width={500}
-                        height={100}
-                        alt="Project 2"
-                        onClick={() => handleImageClick("/img/projects/project3/start-butterfly.png")}
-                        style={{ cursor: 'pointer' }}
-                    />
-                    <br />
-                </div>
-                <br />
-                <div className='flex justify-center p-5'>
-                    <p className={`text-${theme}`}>paragarph 3</p>
-                </div>
-                <br />
-                
+
+
             </div>
 
             {showModal && (

@@ -50,6 +50,11 @@ export default function Project1({ params }) {
                 <div className={`border-${theme}-btline`}>
                     <h5 className={`text-${theme}`} style={{ fontSize: '40px' }}>Nova bot</h5>
                 </div>
+                <a className='absolute' href="https://github.com/newweww/nova-bot" target="_blank" rel="noopener noreferrer" style={{ width: '7vw', right: '25vw' }}>
+                    <div className={`border-${theme} text-${theme}`}>
+                        Github
+                    </div>
+                </a>
                 <br />
                 <div className='flex justify-center'>
                     <Image
