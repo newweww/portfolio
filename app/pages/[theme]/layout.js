@@ -1,16 +1,47 @@
 'use client'
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { Fade } from 'react-awesome-reveal';
 
+// Define the SideMenu component
+const SideMenu = ({ theme, router, isSideMenuOpen, toggleSideMenu }) => {
+
+    const handleMenuItemClick = () => {
+        toggleSideMenu(); // Close the side menu after clicking a menu item
+    };
+
+    return (
+        <Fade className={`fixed z-10 mt-10 ${isSideMenuOpen ? 'block' : 'hidden'} sm:hidden md:hidden lg:hidden xl:hidden`} direction='down' triggerOnce>
+            <div className={`side-menu text-${theme}`}>
+                <ul className="menu-items items-center">
+                    <li className={`border-${theme} mb-2`}>
+                        <button onClick={() => { router.push(`/pages/${theme}/home`); handleMenuItemClick(); }}>Home</button>
+                    </li>
+                    <li className={`border-${theme} mb-2`}>
+                        <button onClick={() => { router.push(`/pages/${theme}/about`); handleMenuItemClick(); }}>About</button>
+                    </li>
+                    <li className={`border-${theme} mb-2`}>
+                        <button onClick={() => { router.push(`/pages/${theme}/project`); handleMenuItemClick(); }}>Projects</button>
+                    </li>
+                    <li className={`border-${theme} mb-2`}>
+                        <button onClick={() => { router.push(`/pages/${theme}/contact`); handleMenuItemClick(); }}>Contact</button>
+                    </li>
+                </ul>
+            </div>
+        </Fade>
+    );
+};
+
 export default function PagesLayout({ children, params }) {
 
     const [theme, setTheme] = useState();
+    const [isSideMenuOpen, setIsSideMenuOpen] = useState(false); // State to control side menu visibility
     const router = useRouter();
     const pathname = usePathname();
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString('th-TH', { timeZone: 'Asia/Bangkok' }));
+    const sideMenuRef = useRef(null);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -21,9 +52,7 @@ export default function PagesLayout({ children, params }) {
     }, []);
 
     useEffect(() => {
-        console.log(params.theme);
         setTheme(params.theme);
-        console.log(pathname);
     }, [params.theme]);
 
     const handleChangeTheme = (e) => {
@@ -34,47 +63,84 @@ export default function PagesLayout({ children, params }) {
         router.push(newPathname);
     };
 
+    const toggleSideMenu = () => {
+        setIsSideMenuOpen(!isSideMenuOpen);
+    };
+
+    const handleClickOutside = (e) => {
+        if (sideMenuRef.current && !sideMenuRef.current.contains(e.target)) {
+            setIsSideMenuOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        if (isSideMenuOpen) {
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.body.style.overflow = 'auto'; // Restore scrolling when menu is closed
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isSideMenuOpen]);
+
     return (
-        <div
-            style={{ height: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+        <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', position: 'relative' }}>
             <style jsx global>{`
                 body {
                     margin: 0;
                     padding: 0;
                     background-color: ${theme === 'light' ? '#f3f4f6' : '#000814'};
+                    overflow: ${isSideMenuOpen ? 'hidden' : 'auto'}; // Prevent scrolling when menu is open
                 }
-                @media screen and (max-width: 950px) {
-                    .floating-lamp, .time-display {
-                        display: none;
-                    }
+                .overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.7); 
+                    z-index: 9; 
+                    display: ${isSideMenuOpen ? 'block' : 'none'}; 
                 }
             `}</style>
-            <Fade className='fixed flex justify-start items-start w-full h-full' direction='down' triggerOnce>
+            <div className="overlay" onClick={toggleSideMenu}></div> {/* Clicking on the overlay will close the menu */}
+            {/* Render the SideMenu component */}
+            <div ref={sideMenuRef}>
+                <SideMenu theme={theme} router={router} isSideMenuOpen={isSideMenuOpen} toggleSideMenu={toggleSideMenu} />
+            </div>
+            <Fade className={`flex absolute`} direction='down' triggerOnce>
                 <div className={`navbar text-${theme}`}>
-                    <ul className="flex flex-col items-center">
+                    <ul className="nav-items max-xl:flex-col items-center">
                         <li className={`border-${theme} mb-2`}>
-                            <button onClick={() => router.push(`/pages/${theme}/home`)}>Home</button>
+                            <button onClick={() => { router.push(`/pages/${theme}/home`); handleMenuItemClick(); }}>Home</button>
                         </li>
                         <li className={`border-${theme} mb-2`}>
-                            <button onClick={() => router.push(`/pages/${theme}/about`)}>About</button>
+                            <button onClick={() => { router.push(`/pages/${theme}/about`); handleMenuItemClick(); }}>About</button>
                         </li>
                         <li className={`border-${theme} mb-2`}>
-                            <button onClick={() => router.push(`/pages/${theme}/project`)}>Projects</button>
+                            <button onClick={() => { router.push(`/pages/${theme}/project`); handleMenuItemClick(); }}>Projects</button>
                         </li>
                         <li className={`border-${theme} mb-2`}>
-                            <button onClick={() => router.push(`/pages/${theme}/contact`)}>Contact</button>
+                            <button onClick={() => { router.push(`/pages/${theme}/contact`); handleMenuItemClick(); }}>Contact</button>
                         </li>
                     </ul>
                 </div>
             </Fade>
-            <Fade className='flex floating-lamp' style={{ left: '8rem'}}  direction='left' triggerOnce>
-                <div className={`flex ${theme === 'dark' ? 'lamp-gif-dark' : 'lamp-gif-light'}`}onClick={handleChangeTheme}></div>
+            <Fade className='flex floating-lamp' style={{ left: '8rem' }} direction='left' triggerOnce>
+                <div className={`flex ${theme === 'dark' ? 'lamp-gif-dark' : 'lamp-gif-light'}`} onClick={handleChangeTheme}></div>
             </Fade>
             <Fade direction='right' triggerOnce>
                 <div className={`time-display flex justify-end absolute mt-20 right-32 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
                     <div className={`border-${theme}`} style={{ fontSize: '24px' }}>{currentTime}</div>
                 </div>
             </Fade>
+
+            <button className={`absolute text-${theme} top-0 left-0 mt-4 ml-4 md:hidden lg:hidden xl:hidden`} onClick={toggleSideMenu}>
+                {isSideMenuOpen ? '' : "Menu"}
+            </button>
             <div className="flex justify-center items-start" >
                 {children}
             </div>

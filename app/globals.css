@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 input {
@@ -28,6 +28,21 @@ textarea {
 
 textarea:focus {
   outline: none;
+}
+
+@media screen and (max-width: 950px) {
+
+  .floating-lamp,
+  .time-display,
+  .turn-on-dark {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 770px){
+  .navbar {
+    display: none;
+  }
 }
 
 .screen-dark {
@@ -85,6 +100,7 @@ textarea:focus {
   background-size: cover;
   left: 10rem;
 }
+
 /* .lamp-gif-dark:hover {
   background-image: url("/img/lamp-bt.gif");
 } */
@@ -117,13 +133,13 @@ textarea:focus {
 .border-light {
   padding: 10px;
   border: 15px solid transparent;
-  border-image: url("/img/border2-wt.gif") 30 stretch ;
+  border-image: url("/img/border2-wt.gif") 30 stretch;
 }
 
 .border-dark {
   padding: 10px;
   border: 15px solid transparent;
-  border-image: url("/img/border2-dt.gif") 30 stretch ;
+  border-image: url("/img/border2-dt.gif") 30 stretch;
 }
 
 .border-light-btline {
@@ -153,30 +169,36 @@ textarea:focus {
 
 .border-dark-rline {
   padding: 10px;
-  border-width: 0 15px 0 0; 
+  border-width: 0 15px 0 0;
   border-style: solid;
   border-image: url("/img/border2-dt.gif") 30 stretch;
 }
 
 .border-light-tbline {
   padding: 10px;
-  border-width: 15px 0 15px 0; 
+  border-width: 15px 0 15px 0;
   border-style: solid;
   border-image: url("/img/border2-wt.gif") 30 stretch;
 }
 
 .border-dark-tbline {
   padding: 10px;
-  border-width: 15px 0 15px 0; 
+  border-width: 15px 0 15px 0;
   border-style: solid;
   border-image: url("/img/border2-dt.gif") 30 stretch;
 }
 
 .navbar {
-  display: flex;
+  display: absolute;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+}
+
+.navitems {
+  display: flex;
+  justify-content: start;
+  align-items: start;
 }
 
 .navbar ul {
