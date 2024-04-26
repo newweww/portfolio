@@ -23,9 +23,9 @@ export default function Project({ params }) {
                         </div>
                     </Fade>
                     <br />
-                    <div >
-                        <div className='flex flex-wrap justify-center'>
-                            <Fade className='mx-3' delay={200} triggerOnce >
+                    <div className='flex'>
+                        <div className='gap-4 grid grid-cols-2 justify-center'>
+                            <Fade delay={200} triggerOnce >
                                 <div className={`flex flex-col w-1/2 border-${theme} hover-zoom`} style={{ width: '100%', height: '470px' }} onClick={() => router.push(`/pages/${theme}/projects/nova-bot`)}>
                                     <div className='flex justify-center' style={{ height: '180px' }}>
                                         <Image
@@ -47,7 +47,7 @@ export default function Project({ params }) {
                                     </div>
                                 </div>
                             </Fade>
-                            <Fade className='mx-3' delay={400} triggerOnce>
+                            <Fade delay={400} triggerOnce>
                                 <div className={`flex flex-col w-1/2 border-${theme} hover-zoom`} style={{ width: '100%', height: '470px' }} onClick={() => router.push(`/pages/${theme}/projects/book-store`)}>
                                     <div className='flex justify-center' style={{ height: '180px' }}>
                                         <Image
@@ -69,11 +69,8 @@ export default function Project({ params }) {
                                     </div>
                                 </div>
                             </Fade>
-                        </div>
-                        <br />
-                        <br />
-                        <div className='flex flex-wrap justify-center'>
-                            <Fade className='mx-3' delay={200} triggerOnce >
+
+                            <Fade delay={200} triggerOnce >
                                 <div className={`flex flex-col w-1/2 border-${theme} hover-zoom`} style={{ width: '100%', height: '470px' }} onClick={() => router.push(`/pages/${theme}/projects/disney-info`)}>
                                     <div className='flex justify-center' style={{ height: '180px' }}>
                                         <Image
@@ -93,7 +90,7 @@ export default function Project({ params }) {
                                     </div>
                                 </div>
                             </Fade>
-                            <Fade className='mx-3' delay={400} triggerOnce>
+                            <Fade delay={400} triggerOnce>
                                 <div className={`flex flex-col w-1/2 border-${theme} hover-zoom`} style={{ width: '100%', height: '470px' }} onClick={() => router.push(`/pages/${theme}/projects/tesla-clone`)}>
                                     <div className='flex justify-center' style={{ height: '180px' }}>
                                         <Image
@@ -113,6 +110,7 @@ export default function Project({ params }) {
                                     </div>
                                 </div>
                             </Fade>
+                            
                         </div>
                     </div>
                 </div>
