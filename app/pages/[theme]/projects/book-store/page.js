@@ -47,15 +47,19 @@ export default function Project2({ params }) {
 
     return (
         <div className="flex justify-center items-center h-screen">
-            <div className="flex flex-col m-auto" style={{ width: '50vw' }}>
-                <div className={`border-${theme}-btline`}>
-                    <h5 className={`text-${theme}`} style={{ fontSize: '40px' }}>Book store</h5>
-                </div>
-                <a className='absolute' href="https://github.com/newweww/onlineshopping" target="_blank" rel="noopener noreferrer" style={{ width: '7vw', right: '25vw' }}>
-                    <div className={`border-${theme} text-${theme}`}>
-                        Github
+            <div className="flex flex-col m-auto project-content">
+                <div className={`flex flex-col justify-around border-${theme}-btline md:flex-col lg:flex-row xl:flex-row 2xl:flex-row`} >
+                    <div>
+                        <h5 className={`text-${theme}`} style={{ fontSize: '40px' }}>Book store</h5>
                     </div>
-                </a>
+                    <div className='flex flex-row'>
+                        <a className='md:static lg:static xl:static 2xl:absolute max-w-28' href="https://github.com/newweww/onlineshopping" target="_blank" rel="noopener noreferrer" >
+                            <div className={`border-${theme} text-${theme}`}>
+                                Github
+                            </div>
+                        </a>
+                    </div>
+                </div>
                 <br />
                 <div className='flex justify-center'>
                     <Image

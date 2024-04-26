@@ -3,44 +3,51 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { DiJsBadge } from "react-icons/di";
 import { Fade } from 'react-awesome-reveal';
 
 export default function About({ params }) {
     const router = useRouter();
     const [theme, setTheme] = useState();
+    const [windowWidth, setWindowWidth] = useState(0);
 
     useEffect(() => {
         setTheme(params.theme);
+        setWindowWidth(window.innerWidth);
+
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     return (
-        <div className="flex flex-col justify-center items-start pb-20 mt-10">
-            <div className='w-screen flex justify-center items-center'>
+        <div className="flex flex-col justify-center items-start pb-20 mt-28">
+            <div className='w-full flex justify-center items-center'>
                 <Fade triggerOnce>
-                    <div className={`border-${theme}`} style={{ width: '45vw', padding: "20px" }}>
+                    <div className={`max-w-4xl mx-auto ${windowWidth < 950 ? '' : `border-${theme}`} home-main`}>
                         <div className='flex flex-col'>
                             <div className='flex items-center justify-between h-full'>
-                                <div className="flex justify-center w-3/6">
+                                <div className="w-full flex-col lg:flex-row flex justify-center items-center" >
                                     <Image
                                         src="/img/profile.jpg"
                                         width={200}
                                         height={200}
                                         alt="Profile"
                                     />
-                                </div>
-                                <div className="flex flex-col justify-center w-3/6" >
-                                    <h1 className=' flex justify-center' style={{ fontSize: '40px', color: theme === 'light' ? 'black' : 'white' }}>About me</h1>
-
-                                    <br />
-                                    <p style={{ color: theme === 'light' ? 'black' : 'white', fontSize: '15px', textIndent: '50px' }}>I am an energetic fresh graduate ready to do the task assigned to the best of my ability, and I also have a quick learning ability and a desire to constantly learn new things. I am ready to take on any kind of challenge and work experience and am willing to adapt to the work as efficiently as possible
-                                    </p>
+                                    <div className="w-full flex flex-col justify-center">
+                                        <h1 className='text-center' style={{ fontSize: '40px', color: theme === 'light' ? 'black' : 'white' }}>About me</h1>
+                                        <br />
+                                        <p className='text-center' style={{ color: theme === 'light' ? 'black' : 'white', fontSize: '15px', textIndent: '50px' }}>I am an energetic fresh graduate ready to do the task assigned to the best of my ability, and I also have a quick learning ability and a desire to constantly learn new things. I am ready to take on any kind of challenge and work experience and am willing to adapt to the work as efficiently as possible
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                             <br />
                             <br />
                             <div className='flex flex-row'>
-                                <div className='w-3/6'>
+                                <div className='w-full md:w-1/2'>
                                     <h1 className={`text-${theme}`} style={{ fontSize: '30px' }}>Profile</h1>
                                     <br />
                                     <p className={`text-${theme}`} style={{ fontSize: '20px' }}>Name : Nattanan Saingthong</p>
@@ -51,7 +58,7 @@ export default function About({ params }) {
                             </div>
                             <br />
                             <br />
-                            <div className='flex flex-col items-end '>
+                            <div className='flex flex-col items-end'>
                                 <h1 className={`text-${theme}`} style={{ fontSize: '30px' }}>Education</h1>
                                 <br />
                                 <p className={`text-${theme}`} style={{ fontSize: '16px', fontWeight: 'bold' }}>Satit Kaset Kamphaengsean School</p>
@@ -69,14 +76,14 @@ export default function About({ params }) {
                                 </div>
                                 <br />
                                 <div className='flex flex-row'>
-                                    <div className={`border-${theme}-rline flex flex-col items-center w-3/6`}>
+                                    <div className={`border-${theme}-rline flex flex-col items-center w-full md:w-1/2`}>
                                         <p className={`text-${theme} mb-2`} style={{ fontSize: '30px' }}>Frontend</p>
                                         <p className={`text-${theme} mt-2`} style={{ fontSize: '20px' }}>ReactJs</p>
                                         <p className={`text-${theme} mt-2`} style={{ fontSize: '20px' }}>NextJs</p>
                                         <p className={`text-${theme} mt-2`} style={{ fontSize: '20px' }}>Bootstrap</p>
                                         <p className={`text-${theme} mt-2`} style={{ fontSize: '20px' }}>Tailwind</p>
                                     </div>
-                                    <div className="flex flex-col items-center w-3/6 mt-3">
+                                    <div className="flex flex-col items-center w-full md:w-1/2 mt-3">
                                         <p className={`text-${theme} mb-2`} style={{ fontSize: '30px' }}>Backend</p>
                                         <p className={`text-${theme} mt-2`} style={{ fontSize: '20px' }}>NodeJs</p>
                                         <p className={`text-${theme} mt-2`} style={{ fontSize: '20px' }}>MySQL</p>
@@ -86,17 +93,16 @@ export default function About({ params }) {
                                 <br />
                                 <br />
                                 <div className='flex justify-center items-center'>
-                                    <div className='flex justify-center items-center' style={{ width: '50%', height: 'auto' }}>
-                                        <Image src="/img/react.png" width={75} height={67} alt="ReactJs" style={{ marginRight: '10px' }} />
-                                        <Image src="/img/nextjs.png" width={60} height={60} alt="NextJs" style={{ marginRight: '10px', filter: theme === 'dark' ? 'invert(100%)' : 'none' }} />
-                                        <Image src="/img/tailwind.png" width={70} height={75} alt="Tailwind" style={{ marginRight: '10px' }} />
-                                        <Image src="/img/bootstrap.png" width={50} height={75} alt="Bootstrap" style={{ marginRight: '10px' }} />
-                                        <Image src="/img/node.png" width={75} height={46} alt="NodeJs" style={{ marginRight: '10px' }} />
-                                        <Image src="/img/npm.png" width={75} height={26} alt="NPM" style={{ marginRight: '10px' }} />
-                                        <Image src="/img/mysql.png" width={75} height={39} alt="MySQL" style={{ marginRight: '10px' }} />
-                                        <Image src="/img/mongodb.png" width={34} height={75} alt="MongoDB" style={{ marginRight: '10px' }} />
+                                    <div className='flex flex-wrap justify-center items-center w-full' style={{ minHeight: '150px' }}>
+                                        <Image src="/img/react.png" width={75} height={67} alt="ReactJs" style={{ marginRight: '10px', marginBottom: '10px' }} />
+                                        <Image src="/img/nextjs.png" width={60} height={60} alt="NextJs" style={{ marginRight: '10px', marginBottom: '10px', filter: theme === 'dark' ? 'invert(100%)' : 'none' }} />
+                                        <Image src="/img/tailwind.png" width={70} height={75} alt="Tailwind" style={{ marginRight: '10px', marginBottom: '10px' }} />
+                                        <Image src="/img/bootstrap.png" width={50} height={75} alt="Bootstrap" style={{ marginRight: '10px', marginBottom: '10px' }} />
+                                        <Image src="/img/node.png" width={75} height={46} alt="NodeJs" style={{ marginRight: '10px', marginBottom: '10px' }} />
+                                        <Image src="/img/npm.png" width={75} height={26} alt="NPM" style={{ marginRight: '10px', marginBottom: '10px' }} />
+                                        <Image src="/img/mysql.png" width={75} height={39} alt="MySQL" style={{ marginRight: '10px', marginBottom: '10px' }} />
+                                        <Image src="/img/mongodb.png" width={34} height={75} alt="MongoDB" style={{ marginRight: '10px', marginBottom: '10px' }} />
                                     </div>
-
                                 </div>
                             </div>
                             <br />

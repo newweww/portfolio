@@ -75,10 +75,10 @@ export default function PagesLayout({ children, params }) {
 
     useEffect(() => {
         if (isSideMenuOpen) {
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            document.body.style.overflow = 'hidden'; 
             document.addEventListener('mousedown', handleClickOutside);
         } else {
-            document.body.style.overflow = 'auto'; // Restore scrolling when menu is closed
+            document.body.style.overflow = 'auto'; 
             document.removeEventListener('mousedown', handleClickOutside);
         }
         return () => {
@@ -106,14 +106,14 @@ export default function PagesLayout({ children, params }) {
                     display: ${isSideMenuOpen ? 'block' : 'none'}; 
                 }
             `}</style>
-            <div className="overlay" onClick={toggleSideMenu}></div> {/* Clicking on the overlay will close the menu */}
-            {/* Render the SideMenu component */}
+            <div className="overlay" onClick={toggleSideMenu}></div> 
+
             <div ref={sideMenuRef}>
                 <SideMenu theme={theme} router={router} isSideMenuOpen={isSideMenuOpen} toggleSideMenu={toggleSideMenu} />
             </div>
-            <Fade className={`flex absolute`} direction='down' triggerOnce>
+            <Fade className={`flex absolute z-10`} direction='down' triggerOnce>
                 <div className={`navbar text-${theme}`}>
-                    <ul className="nav-items max-xl:flex-col items-center">
+                    <ul className="nav-items flex-col items-center">
                         <li className={`border-${theme} mb-2`}>
                             <button onClick={() => { router.push(`/pages/${theme}/home`); handleMenuItemClick(); }}>Home</button>
                         </li>

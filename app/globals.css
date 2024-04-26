@@ -45,6 +45,28 @@ textarea:focus {
   }
 }
 
+@media screen and (min-width: 950px) {
+  .home-main {
+    width: 45vw;
+    padding: 20px;
+  }
+  .project-content {
+    width: 50vw;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .home-main {
+    width: auto;
+    padding: 10px;
+  }
+  .project-content {
+    width: auto;
+    padding: 20px;
+  }
+}
+
 .screen-dark {
   background-color: #f3f4f6;
 }

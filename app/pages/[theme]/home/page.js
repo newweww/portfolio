@@ -24,10 +24,10 @@ export default function Home({ params }) {
     }, []);
 
     return (
-        <div className="flex flex-col justify-center items-start pb-20">
+        <div className="flex flex-col justify-center items-start">
             <div className='h-screen w-screen flex justify-center items-center'> 
-                <Fade>
-                    <div className={`flex ${windowWidth < 950 ? '' : `border-${theme}`} flex-col lg:flex-row `} style={{ width: '45vw', padding: "20px" }}>
+                <Fade className={`flex `}>
+                    <div className={`flex home-main ${windowWidth < 950 ? '' : `border-${theme}`} flex-col lg:flex-row `}>
                         <div className={ `w-full lg:w-3/6 flex flex-col justify-center items-start`} >
                             <div className='flex justify-center'>
                                 <h5 className={`text-${theme}`} style={{ fontSize: windowWidth < 950 ? '16px' : '20px' }}>
@@ -73,7 +73,7 @@ export default function Home({ params }) {
                 <Fade direction='up' triggerOnce>
                     <div>
                         <br />
-                        <div className={`${windowWidth < 950 ? '' : `border-${theme}-tbline`} flex flex-col 2xl:flex-row`} style={{ width: '45vw', padding: "20px" }}>
+                        <div className={`home-main ${windowWidth < 950 ? '' : `border-${theme}-tbline`} flex flex-col 2xl:flex-row`} >
                             <br />
                             <br />
                             <p className={`text-${theme}`} style={{ fontSize: windowWidth < 950 ? '20px' : '30px' }}>"Pull everything from the internet</p>
