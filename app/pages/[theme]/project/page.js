@@ -24,7 +24,7 @@ export default function Project({ params }) {
                     </Fade>
                     <br />
                     <div className='flex'>
-                        <div className='gap-4 grid grid-cols-2 justify-center'>
+                        <div className='gap-4 grid 2xl:grid-cols-2 xl:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 justify-center'>
                             <Fade delay={200} triggerOnce >
                                 <div className={`flex flex-col w-1/2 border-${theme} hover-zoom`} style={{ width: '100%', height: '470px' }} onClick={() => router.push(`/pages/${theme}/projects/nova-bot`)}>
                                     <div className='flex justify-center' style={{ height: '180px' }}>
