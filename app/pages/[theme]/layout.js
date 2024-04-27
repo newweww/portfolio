@@ -129,11 +129,11 @@ export default function PagesLayout({ children, params }) {
                     </ul>
                 </div>
             </Fade>
-            <Fade className='flex floating-lamp' style={{ left: '8rem' }} direction='left' triggerOnce>
+            <Fade className='flex floating-lamp' direction='left' triggerOnce>
                 <div className={`flex ${theme === 'dark' ? 'lamp-gif-dark' : 'lamp-gif-light'}`} onClick={handleChangeTheme}></div>
             </Fade>
             <Fade direction='right' triggerOnce>
-                <div className={`time-display flex justify-end absolute mt-20 right-32 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+                <div className={`time-display flex justify-end absolute mt-16 right-32 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
                     <div className={`border-${theme}`} style={{ fontSize: '24px' }}>{currentTime}</div>
                 </div>
             </Fade>
