@@ -5,11 +5,10 @@ import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { Fade } from 'react-awesome-reveal';
 
-// Define the SideMenu component
 const SideMenu = ({ theme, router, isSideMenuOpen, toggleSideMenu }) => {
 
     const handleMenuItemClick = () => {
-        toggleSideMenu(); // Close the side menu after clicking a menu item
+        toggleSideMenu();
     };
 
     return (
