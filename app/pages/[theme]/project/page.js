@@ -26,6 +26,28 @@ export default function Project({ params }) {
                     <div className='flex'>
                         <div className='gap-4 grid 2xl:grid-cols-3 xl:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 justify-center'>
                             <Fade delay={200} triggerOnce>
+                                <div className={`flex flex-col w-1/2 border-${theme} hover-zoom`} style={{ width: '100%', height: '470px' }} onClick={() => router.push(`/pages/${theme}/projects/prisma-crud`)}>
+                                    <div className='flex justify-center' style={{ height: '180px' }}>
+                                        <Image
+                                            src="/img/projects/project8/1.png"
+                                            width={300}
+                                            height={100}
+                                            alt="Project 2"
+                                        />
+                                    </div>
+                                    <div className='p-3' style={{ width: '300px' }}>
+                                        <h1 className={`text-${theme} mx-2 mt-2`} style={{ fontSize: '30px' }}>Prisma_CRUD</h1>
+                                        <div className='flex flex-wrap mb-3'>
+                                            <span className={`inline-block badge-${theme} text-xs font-semibold px-2 rounded-full uppercase mr-1 mb-1`}>NextJs</span>
+                                            <span className={`inline-block badge-${theme} text-xs font-semibold px-2 rounded-full uppercase mr-1 mb-1`}>Tailwind</span>
+                                            <span className={`inline-block badge-${theme} text-xs font-semibold px-2 rounded-full uppercase mr-1 mb-1`}>MongoDB</span>
+                                            <span className={`inline-block badge-${theme} text-xs font-semibold px-2 rounded-full uppercase mr-1 mb-1`}>Prisma</span>
+                                        </div>
+                                        <p className={`text-${theme}`} style={{ fontSize: '15px' }}>โปรเจคนี้เป็นโปรเจคที่ใช้เรียนรู้การทำ CRUD ด้วย Prisma และ MongoDB</p>
+                                    </div>
+                                </div>
+                            </Fade>
+                            <Fade delay={200} triggerOnce>
                                 <div className={`flex flex-col w-1/2 border-${theme} hover-zoom`} style={{ width: '100%', height: '470px' }} onClick={() => router.push(`/pages/${theme}/projects/free2play`)}>
                                     <div className='flex justify-center' style={{ height: '180px' }}>
                                         <Image
@@ -43,7 +65,7 @@ export default function Project({ params }) {
                                             <span className={`inline-block badge-${theme} text-xs font-semibold px-2 rounded-full uppercase mr-1 mb-1`}>MongoDB</span>
                                             <span className={`inline-block badge-${theme} text-xs font-semibold px-2 rounded-full uppercase mr-1 mb-1`}>NextAuth</span>
                                         </div>
-                                        <p className={`text-${theme}`} style={{ fontSize: '15px' }}>Description</p>
+                                        <p className={`text-${theme}`} style={{ fontSize: '15px' }}>Free2Play เป็นเว็บไซท์ที่รวบรวมเกมฟรี โดยเว็บไซต์นี้รวบรวมเกมฟรีที่เล่นได้ทันที ไม่มีค่าใช้จ่าย มีเกมให้เลือกเล่นทุกแนว เพิ่มเติมอัพเดทเกมใหม่ๆ อยู่เสมอ</p>
                                     </div>
                                 </div>
                             </Fade>
@@ -64,7 +86,7 @@ export default function Project({ params }) {
                                             <span className={`inline-block badge-${theme} text-xs font-semibold px-2 rounded-full uppercase mr-1 mb-1`}>Tailwind</span>
                                             <span className={`inline-block badge-${theme} text-xs font-semibold px-2 rounded-full uppercase mr-1 mb-1`}>MongoDB</span>
                                         </div>
-                                        <p className={`text-${theme}`} style={{ fontSize: '15px' }}>Description</p>
+                                        <p className={`text-${theme}`} style={{ fontSize: '15px' }}>คุณกำลังเบื่ออยู่รึปล่าว? Bored จะเป็นเว็บที่จะช่วยคุณตัดสินใจว่าจะทำอะไรในเวลาว่างดี</p>
                                     </div>
                                 </div>
                             </Fade>
@@ -85,7 +107,7 @@ export default function Project({ params }) {
                                             <span className={`inline-block badge-${theme} text-xs font-semibold px-2 rounded-full uppercase mr-1 mb-1`}>Tailwind</span>
                                             <span className={`inline-block badge-${theme} text-xs font-semibold px-2 rounded-full uppercase mr-1 mb-1`}>MongoDB</span>
                                         </div>
-                                        <p className={`text-${theme}`} style={{ fontSize: '15px' }}>Description</p>
+                                        <p className={`text-${theme}`} style={{ fontSize: '15px' }}>Note App นี้เป็นแอปพลิเคชันที่ช่วยให้คุณบันทึกข้อความและข้อมูลต่าง ๆ ได้อย่างสะดวก ทำให้คุณสามารถเข้าถึงข้อมูลที่ต้องการได้อย่างรวดเร็วและง่ายดาย</p>
                                     </div>
 
                                 </div>

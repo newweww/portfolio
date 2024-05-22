@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-export default function Free2Play({ params }) {
+export default function Prisma_CRUD({ params }) {
     const router = useRouter();
     const [theme, setTheme] = useState();
 
@@ -50,66 +50,45 @@ export default function Free2Play({ params }) {
             <div className="flex flex-col m-auto project-content">
                 <div className={`flex flex-col justify-around border-${theme}-btline md:flex-col lg:flex-row xl:flex-row 2xl:flex-row`}>
                     <div>
-                        <h5 className={`text-${theme}`} style={{ fontSize: '40px' }}>Free2Play</h5>
+                        <h5 className={`text-${theme}`} style={{ fontSize: '40px' }}>Prisma_CRUD</h5>
                     </div>
-                    <div className='flex flex-row'>
-                        <a className='md:static lg:static xl:static 2xl:absolute max-w-28' href="https://github.com/newweww/free2play-website" target="_blank" rel="noopener noreferrer" >
+                    <div className="flex flex-row">
+                        <a className='md:static lg:static xl:static 2xl:absolute max-w-28' href="https://github.com/newweww/prisma-crud" target="_blank" rel="noopener noreferrer">
                             <div className={`border-${theme} text-${theme}`}>
                                 Github
                             </div>
                         </a>
-                        <a className='md:static lg:static xl:static 2xl:absolute max-w-28' href="https://free2play-website.vercel.app/" target="_blank" rel="noopener noreferrer" >
-                            <div className={`border-${theme} text-${theme}`}>
-                                Website
-                            </div>
-                        </a>
                     </div>
                 </div>
+
+
                 <br />
                 <div className='flex justify-center'>
                     <Image
-                        src="/img/projects/project7/1.png"
+                        src="/img/projects/project8/1.png"
                         width={500}
                         height={100}
                         alt="Project 2"
-                        onClick={() => handleImageClick("/img/projects/project7/1.png")}
+                        onClick={() => handleImageClick("/img/projects/project8/1.png")}
                         style={{ cursor: 'pointer' }}
                     />
                 </div>
                 <br />
                 <div className='flex justify-center p-5'>
-                    <p className={`text-${theme}`}>Free2Play เป็นเว็บไซท์ที่รวบรวมเกมฟรีหลางหลายแนวเอาไว้เพื่อให้ผู้ใช้สามารถมาเลือกและค้นหาเกมที่สนใจได้ โดยภายในเว็บไซท์จะมีการแบ่งหมวดหมู่มากมายเช่น MOBA MMORPG etc. เพื่อให้งานต่อการค้นหา โดยแต่ละเกมจะมีรายละเอียดเช่น ผู้พัฒนา วันวางจำหน่าย ฯลฯ และยังสามารมากดลิ้งค์เพื่อเข้าไปยังเว็บทางการของตัวเกมได้</p>
+                    <p className={`text-${theme}`}>โปรเจ็ค Prisma-CRUD เป็นโปรเจ็คที่ใช้เพื่อศึกษาและปฏิบัติการเรียนรู้การทำ CRUD (Create, Read, Update, Delete) โดยใช้ Prisma เป็น ORM (Object-Relational Mapping) ร่วมกับ MongoDB เป็นฐานข้อมูล เพื่อจัดการข้อมูลในรูปแบบของ Object หรือ Model โดยที่ Prisma จะช่วยให้ง่ายต่อการเชื่อมต่อกับฐานข้อมูล MongoDB และจัดการกับข้อมูลในรูปแบบของ Object ได้อย่างมีประสิทธิภาพและง่ายดาย</p>
                 </div>
                 <br />
                 <div className='flex flex-col items-center'>
                     <Image
-                        src="/img/projects/project7/2.png"
+                        src="/img/projects/project8/2.png"
                         width={500}
                         height={100}
                         alt="Project 2"
-                        onClick={() => handleImageClick("/img/projects/project7/2.png")}
+                        onClick={() => handleImageClick("/img/projects/project8/2.png")}
                         style={{ cursor: 'pointer' }}
                     />
                     <br />
                 </div>
-                <br />
-                <div className='flex flex-col items-center'>
-                    <Image
-                        src="/img/projects/project7/3.png"
-                        width={500}
-                        height={100}
-                        alt="Project 2"
-                        onClick={() => handleImageClick("/img/projects/project7/3.png")}
-                        style={{ cursor: 'pointer' }}
-                    />
-                    <br />
-                </div>
-                <br />
-                <div className='flex justify-center p-5'>
-                    <p className={`text-${theme}`}>นอกจากนี้ยังมีระบบ Log-in เพื่อให้ผู้ใช้สามารถกดเพิ่มเกมที่สนใจไว้ในลิสต์ Favorite เพื่อประกอบการตัดสินใจได้อีกด้วย</p>
-                </div>
-                <br />
-
             </div>
 
             {showModal && (
